@@ -1,7 +1,7 @@
 """""""""" Mappings """""""""""""""""
 
 " Initialising IDE mode by default.
-autocmd vimenter * IDEOpen
+autocmd vimenter /home/*/work/* IDEOpen
 
 " To allow F5 and F6 to prepend/append a var_dump('<cword>') to the cursor current word line.
 let g:php_echo_pre = 'var_dump($'

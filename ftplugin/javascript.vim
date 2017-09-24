@@ -1,5 +1,5 @@
 
-autocmd vimenter * IDEOpen
+autocmd vimenter /home/*/work/* IDEOpen
 
 " To allow F5 and F6 to prepend/append a console.log('<cword>') to the cursor current word line.
 let g:javascript_echo_pre = 'console.log('
