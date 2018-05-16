@@ -1,5 +1,8 @@
 """""""""" Public """""""""""""""""""
 
+" Starts IDE mode in folders under $HOME
+command! -nargs=0 -bar IDEAutoOpen call s:IDEAutoOpen()
+
 " Starts IDE mode.
 command! -nargs=0 -bar IDEOpen call s:IDEOpen()
 
@@ -56,6 +59,29 @@ endif
 """""""""" Internals """"""""""""""""
 
 let s:IDEModeOn = 0
+
+" Open IDE when opening project file
+function! s:IDEAutoOpen()
+  if s:IDEModeOn == 1
+    return 0
+  endif
+
+  " only when opening a file from project root
+  if expand('%') =~ '^(\.\./|/)'
+    echom 'parent or absolute path'
+    return 0
+  endif
+
+  " only in subfolders of home
+  if match(getcwd(), $HOME) != 0 || strlen($HOME) >= strlen(getcwd())
+    echo 'not in home'
+    return 0
+  endif
+
+  call s:IDEOpen()
+
+  return 1
+endfunction
 
 " Open the IDE windows
 function! s:IDEOpen()
