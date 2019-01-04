@@ -53,7 +53,7 @@ Backup your **~/.vimrc** and/or your **~/.vim** dir.
 
     cd ~/.vim
     git clone git://github.com/dmonllao/vim-IDE.git .
-    ln -s ~/.vim/.vimrc ~/.vimrc
+    ln -s ~/.vim/init.vim ~/.vimrc
     git submodule init
     git submodule update
 
